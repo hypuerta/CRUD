@@ -3,6 +3,24 @@
 	<title>hola..</title>
 </head>
 <body>
-primera vista
+<table  border=1px width=100%>
+	<tr>tabla asignatura</tr>
+	<tr>
+		<td>Nombre: </td>
+		<td>Peso de asignatura: </td>
+		<td>Fecha de creacion: </td>
+	</tr>
+	{% if lista_asinatura %}
+			{% for a in lista_asinatura %}
+					<tr>
+						<td>{{a.nombre}}</td>
+						<td>{{a.pesoAsignatura}}</td>
+						<td>{{a.fechaCreacion}}</td>
+					</tr>
+			{% endfor %}
+	{% else %}
+		<h2>no existen asignaturas</h2>
+	{% endif %}
+</table>
 </body>
 </html>
