@@ -1,26 +1,19 @@
 <html>
 <head>
-	<title>hola..</title>
+	<title>Primera Entrega CRUD</title>
 </head>
 <body>
-<table  border=1px width=100%>
-	<tr>tabla asignatura</tr>
-	<tr>
-		<td>Nombre: </td>
-		<td>Peso de asignatura: </td>
-		<td>Fecha de creacion: </td>
-	</tr>
-	{% if lista_asinatura %}
-			{% for a in lista_asinatura %}
-					<tr>
-						<td>{{a.nombre}}</td>
-						<td>{{a.pesoAsignatura}}</td>
-						<td>{{a.fechaCreacion}}</td>
-					</tr>
-			{% endfor %}
-	{% else %}
-		<h2>no existen asignaturas</h2>
-	{% endif %}
-</table>
+<center>
+	<br><br><br>
+	<a href="asignaturas">ASIGNATURAS</a><BR>
+	<a href="logros">LOGROS</a>
+
+<footer><br><br><br>
+	<h3>Herler Puerta & Yeison Gañan <br>
+		Laboratorio de Software <br>
+		Ing. de Sistemas y Computaciones <br>
+		UTP - 2013</h3>
+</footer>
+</center>
 </body>
 </html>

@@ -1,13 +1,18 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
-from crud.apps.models import Logro,Asignatura  
+from crud.apps.models import Logro,Asignatura
 
-def index_view(request):
+def Asignaturas_view(request):
 	lista_asinatura = Asignatura.objects.filter(activo=True)
+	return render_to_response('asignaturas.html', locals(),context_instance=RequestContext(request))
 
-	return render_to_response('index.html', locals(),context_instance=RequestContext(request))
+def Logros_view(request):
+	lista_logro = Logro.objects.filter(activo=True)
+	return render_to_response('logros.html', locals(),context_instance=RequestContext(request))
 
+def Index_view(request):
+	return render_to_response('index.html', context_instance=RequestContext(request))
 
 
 

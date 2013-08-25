@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>CRUD .. Asignaturas</title>
+</head>
+<body>
+<center>
+
+<br><br><br>
+
+<table  border=1px width=80%>
+	<tr>tabla Asignatura</tr>
+	<tr>
+		<td>Id Asignatura: </td>
+		<td>Nombre: </td>
+		<td>Peso de asignatura: </td>
+		<td>Fecha de creacion: </td>
+	</tr>
+	{% if lista_asinatura %}
+			{% for a in lista_asinatura %}
+					<tr>
+						<td>{{a.idAsignatura}}</td>
+						<td>{{a.nombre}}</td>
+						<td>{{a.pesoAsignatura}}</td>
+						<td>{{a.fechaCreacion}}</td>
+					</tr>
+			{% endfor %}
+	{% else %}
+		<tr>
+			<h2>no existen asignaturas</h2>
+		</tr>
+	{% endif %}
+</table>
+
+<footer><br><br><br>
+	<h3>Herler Puerta & Yeison Gañan <br>
+		Laboratorio de Software <br>
+		Ing. de Sistemas y Computaciones <br>
+		UTP - 2013</h3>
+</footer>
+</center>
+</body>
+</html>

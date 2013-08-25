@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>CRUD... Logros</title>
+</head>
+<body>
+<center>
+
+<br><br><br>
+
+<table  border=1px width=80%>
+	<tr>tabla Logros</tr>
+	<tr>
+		<td>Id Logros: </td>
+		<td>Id Asignatura: </td>
+		<td>Nombre: </td>
+		<td>Descripcion: </td>
+		<td>Fecha de creacion: </td>
+	</tr>
+	{% if lista_logro %}
+			{% for l in lista_logro %}
+					<tr>
+						<td>{{l.idLogro}}</td>
+						<td>{{l.idAsignatura}}</td>
+						<td>{{l.nombre}}</td>
+						<td>{{l.descripcion}}</td>
+						<td>{{l.fechaCreacion}}</td>
+					</tr>
+			{% endfor %}
+	{% else %}
+		<tr>
+			<h2>no existen Logros</h2>
+		</tr>
+	{% endif %}
+</table>
+
+<footer><br><br><br>
+	<h3>Herler Puerta & Yeison Gañan <br>
+		Laboratorio de Software <br>
+		Ing. de Sistemas y Computaciones <br>
+		UTP - 2013</h3>
+</footer>
+</center>
+</body>
+</html>
