@@ -19,4 +19,5 @@ urlpatterns = patterns('crud.apps.views',
     url(r'^del_logro/(?P<id_logro>.*)', 'del_logro_view'),
     url(r'^addasignatura/$','add_asignatura_view',name='vista_nueva_asignatura'),
     url(r'^addlogro/$','add_logro_view',name='vista_nuevo_logro'),
+    url(r'^edit_asignatura/(?P<id_asignatura.*)','edit_asignatura_view', name = "vista_editar_asignatura"),
 )

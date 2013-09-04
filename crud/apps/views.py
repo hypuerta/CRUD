@@ -60,3 +60,6 @@ def add_logro_view(request):
 	else:
 		asignaturas = Asignatura.objects.all()
 		return render_to_response('addlogro.html',locals(),context_instance=RequestContext(request))
+
+def edit_asignatura_view(request):
+	return HttpResponseRedirect('/')
