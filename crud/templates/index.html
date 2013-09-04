@@ -1,76 +1,52 @@
-<html>
-<head>
-	<title>Primera Entrega CRUD</title>
-</head>
-<body>
-<center>
-	<br><br><br>
-	
-	<table  border=1px width=80%>
-		<tr><h1>tabla Asignatura</h1></tr>
-		<tr>
-			<td>Id Asignatura: </td>
-			<td>Nombre: </td>
-			<td>Peso de asignatura: </td>
-			<td>Fecha de creacion: </td>
-		</tr>
-		{% if lista_asinatura %}
-				{% for a in lista_asinatura %}
-						<tr>
-							<td>{{a.idAsignatura}}</td>
-							<td>{{a.nombre}}</td>
-							<td>{{a.pesoAsignatura}}</td>
-							<td>{{a.fechaCreacion}}</td>
-							<td><a href="/edit_asignatura/{{a.idAsignatura}}">Editar</a></td>
-							<td><a href="/del_asignatura/{{a.idAsignatura}}">Eliminar</a></td>
-						</tr>
-				{% endfor %}
-		{% else %}
-			<tr>
-				<h2>no existen asignaturas</h2>
-			</tr>
-		{% endif %}
-	</table>
-	
-	<a href="addasignatura">Nueva asignatura</a><br>
+{% extends 'base.html' %}
+{% block content %}
+<table  class="table table-hover" border="1px">
+	<thead>
+	<tr>
+		<td><h3>Asignatura</h3></td>
+		<td><h3>Peso de asignatura</h3></td>
+		<td><h3>Fecha de creacion</h3></td>
+	</tr>
+	</thead>
+	{% if lista_asinatura %}
+			{% for a in lista_asinatura %}
+				<tbody>
+					<tr>
+						<td>{{a.nombre}}</td>
+						<td>{{a.pesoAsignatura}}</td>
+						<td>{{a.fechaCreacion}}</td>
+						<td><a href="/del_asignatura/{{a.idAsignatura}}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			{% endfor %}
+	{% else %}
+		<h2>no existen asignaturas</h2>
+	{% endif %}
+</table>
+<a class ="btn" href="addasignatura"><li class="icon-plus"></li>Nueva asignatura</a><br><br>
 
-	<br><br><br>
-
-	<table  border=1px width=80%>
-		<tr><h1>tabla Logros</h1></tr>
-		<tr>
-			<td>Id Logros: </td>
-			<td>Id Asignatura: </td>
-			<td>Nombre: </td>
-			<td>Descripcion: </td>
-			<td>Fecha de creacion: </td>
-		</tr>
-		{% if lista_logro %}
-				{% for l in lista_logro %}
-						<tr>
-							<td>{{l.idLogro}}</td>
-							<td>{{l.idAsignatura}}</td>
-							<td>{{l.nombre}}</td>
-							<td>{{l.descripcion}}</td>
-							<td>{{l.fechaCreacion}}</td>
-							<td><a href="/del_logro/{{a.id}}">Eliminar</a></td>
-						</tr>
-				{% endfor %}
-		{% else %}
-			<tr>
-				<h2>no existen Logros</h2>
-			</tr>
-		{% endif %}
-	</table>
-	<a href="addlogro">Nueva Logro</a><br>
-
-
-<footer><br><br><br>
-	<h3>Herler Puerta & Yeison Gañan <br>
-		Laboratorio de Software <br>
-		Ing. de Sistemas y Computaciones <br>
-		UTP - 2013</h3>
-</footer>
-</center>
-</body>
-</html>
+<table class="table table-hover" border="1px">
+	<thead>
+	<tr>
+		<td><h3>Nombre: </h3></td>
+		<td><h3>Descripcion: </h3></td>
+		<td><h3>Fecha de creacion: </h3></td>
+	</tr>
+	</thead>
+	{% if lista_logro %}
+			{% for a in lista_logro %}
+				<tbody>
+					<tr>
+						<td>{{a.nombre}}</td>
+						<td>{{a.descripcion}}</td>
+						<td>{{a.fechaCreacion}}</td>
+						<td><a href="/del_logro/{{a.id}}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			{% endfor %}
+	{% else %}
+		<h2>no existen logros</h2>
+	{% endif %}
+</table>
+<a class ="btn" href="addlogro"><li class="icon-plus"></li>Nueva Logro</a><br>
+{% endblock %}
