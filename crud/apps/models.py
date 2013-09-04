@@ -10,6 +10,14 @@ class Asignatura(models.Model):
 	def __unicode__(self):
 		return self.nombre
 
+	def del_asignatura(self,id_asignatura):
+		try:
+			asignatura = self.objects.get(idAsignatura=id_asignatura)
+			asignatura.delete()
+			return True
+		except asignatura.DoesNotExist:
+			return False
+
 class Logro(models.Model):
 	idLogro = models.AutoField(primary_key=True,blank=False,null=False)
 	idAsignatura = models.ForeignKey(Asignatura)

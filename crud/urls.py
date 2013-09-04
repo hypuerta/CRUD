@@ -14,7 +14,9 @@ urlpatterns = patterns('crud.apps.views',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$','Index_view',name='vista_Principal'),
-    url(r'^asignaturas/','Asignaturas_view',name='vista_asignaturas'),
-    url(r'^logros/','Logros_view',name='vista_logros'),
+    url(r'^$','index_view',name='vista_Principal'),
+    url(r'^del_asignatura/(?P<id_asignatura>.*)', 'del_asignatura_view'),
+    url(r'^del_logro/(?P<id_logro>.*)', 'del_logro_view'),
+    url(r'^addasignatura/$','add_asignatura_view',name='vista_nueva_asignatura'),
+    url(r'^addlogro/$','add_logro_view',name='vista_nuevo_logro'),
 )

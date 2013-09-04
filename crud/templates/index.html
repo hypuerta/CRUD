@@ -5,8 +5,64 @@
 <body>
 <center>
 	<br><br><br>
-	<a href="asignaturas">ASIGNATURAS</a><BR>
-	<a href="logros">LOGROS</a>
+	
+	<table  border=1px width=80%>
+		<tr><h1>tabla Asignatura</h1></tr>
+		<tr>
+			<td>Id Asignatura: </td>
+			<td>Nombre: </td>
+			<td>Peso de asignatura: </td>
+			<td>Fecha de creacion: </td>
+		</tr>
+		{% if lista_asinatura %}
+				{% for a in lista_asinatura %}
+						<tr>
+							<td>{{a.idAsignatura}}</td>
+							<td>{{a.nombre}}</td>
+							<td>{{a.pesoAsignatura}}</td>
+							<td>{{a.fechaCreacion}}</td>
+							<td><a href="/del_asignatura/{{a.idAsignatura}}">Eliminar</a></td>
+						</tr>
+				{% endfor %}
+		{% else %}
+			<tr>
+				<h2>no existen asignaturas</h2>
+			</tr>
+		{% endif %}
+	</table>
+	
+	<a href="addasignatura">Nueva asignatura</a><br>
+
+	<br><br><br>
+
+	<table  border=1px width=80%>
+		<tr><h1>tabla Logros</h1></tr>
+		<tr>
+			<td>Id Logros: </td>
+			<td>Id Asignatura: </td>
+			<td>Nombre: </td>
+			<td>Descripcion: </td>
+			<td>Fecha de creacion: </td>
+		</tr>
+		{% if lista_logro %}
+				{% for l in lista_logro %}
+						<tr>
+							<td>{{l.idLogro}}</td>
+							<td>{{l.idAsignatura}}</td>
+							<td>{{l.nombre}}</td>
+							<td>{{l.descripcion}}</td>
+							<td>{{l.fechaCreacion}}</td>
+							<td><a href="/del_logro/{{a.id}}">Eliminar</a></td>
+						</tr>
+				{% endfor %}
+		{% else %}
+			<tr>
+				<h2>no existen Logros</h2>
+			</tr>
+		{% endif %}
+	</table>
+	<a href="addlogro">Nueva Logro</a><br>
+
 
 <footer><br><br><br>
 	<h3>Herler Puerta & Yeison Gañan <br>
