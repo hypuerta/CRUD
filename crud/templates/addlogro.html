@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+Adicionar nuevo logro
+{% endblock %}
+{% block content %}
+<form action="." method="POST">
+{% csrf_token %}
+	<select name="asignatura">
+		{% for i in asignaturas %}
+			<option value="{{i}}">{{i}}</option>
+		{% endfor %}
+	</select>
+	<br>
+	<input type="text" name="nombre" placeholder="nombre de logro">
+	<br>
+	<input type="text" name="descripcion" placeholder="descripcion">
+	<br>
+	<input type="submit" value="guardar">
+</form>
+{% endblock %}

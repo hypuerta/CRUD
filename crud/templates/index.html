@@ -1,26 +1,50 @@
-<html>
-<head>
-	<title>hola..</title>
-</head>
-<body>
-<table  border=1px width=100%>
-	<tr>tabla asignatura</tr>
+{% extends 'base.html' %}
+{% block content %}
+<table  class="table table-hover" border="1px">
+	<thead>
 	<tr>
-		<td>Nombre: </td>
-		<td>Peso de asignatura: </td>
-		<td>Fecha de creacion: </td>
+		<td><h3>Asignatura</h3></td>
+		<td><h3>Peso de asignatura</h3></td>
+		<td><h3>Fecha de creacion</h3></td>
 	</tr>
+	</thead>
 	{% if lista_asinatura %}
 			{% for a in lista_asinatura %}
+				<tbody>
 					<tr>
 						<td>{{a.nombre}}</td>
 						<td>{{a.pesoAsignatura}}</td>
 						<td>{{a.fechaCreacion}}</td>
 					</tr>
+				</tbody>
 			{% endfor %}
 	{% else %}
 		<h2>no existen asignaturas</h2>
 	{% endif %}
 </table>
-</body>
-</html>
+<a class ="btn" href="{% url vista_nueva_asignatura %}"><li class="icon-plus"></li>Nueva asignatura</a><br><br>
+
+<table class="table table-hover" border="1px">
+	<thead>
+	<tr>
+		<td><h3>Nombre: </h3></td>
+		<td><h3>Descripcion: </h3></td>
+		<td><h3>Fecha de creacion: </h3></td>
+	</tr>
+	</thead>
+	{% if lista_logro %}
+			{% for a in lista_logro %}
+				<tbody>
+					<tr>
+						<td>{{a.nombre}}</td>
+						<td>{{a.descripcion}}</td>
+						<td>{{a.fechaCreacion}}</td>
+					</tr>
+				</tbody>
+			{% endfor %}
+	{% else %}
+		<h2>no existen logros</h2>
+	{% endif %}
+</table>
+<a class ="btn" href="{% url vista_nuevo_logro %}"><li class="icon-plus"></li>Nueva Logro</a><br>
+{% endblock %}
