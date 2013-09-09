@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<table  class="table table-hover" border="1px">
+<table  class="table table-hover" border="1px" width=80%>
 	<thead>
 	<tr>
 		<td><h3>Asignatura</h3></td>
@@ -22,7 +22,7 @@
 		<h2>no existen asignaturas</h2>
 	{% endif %}
 </table>
-<a class ="btn" href="{% url vista_nueva_asignatura %}"><li class="icon-plus"></li>Nueva asignatura</a><br><br>
+<a class ="btn" href="{% url "vista_nueva_asignatura" %}"><li class="icon-plus"></li>Nueva asignatura</a><br><br>
 
 <table class="table table-hover" border="1px">
 	<thead>
@@ -46,5 +46,5 @@
 		<h2>no existen logros</h2>
 	{% endif %}
 </table>
-<a class ="btn" href="{% url vista_nuevo_logro %}"><li class="icon-plus"></li>Nueva Logro</a><br>
+<a class ="btn" href="{% url "vista_nuevo_logro" %}"><li class="icon-plus"></li>Nueva Logro</a><br>
 {% endblock %}

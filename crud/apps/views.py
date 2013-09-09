@@ -9,6 +9,7 @@ def index_view(request):
 	lista_logro  = Logro.objects.filter(activo=True)
 	return render_to_response('index.html', locals(),context_instance=RequestContext(request))
 
+"""
 def add_asignatura_view(request):
 	if request.method == 'POST':
 		info = "inicializando"
@@ -30,6 +31,18 @@ def add_asignatura_view(request):
 		form = addAsignaturaForm()
 		ctx={'form':form}
 		return render_to_response('addasignatura.html',ctx,context_instance=RequestContext(request))
+"""
+
+def add_asignatura_view(request):
+	if request.method == 'POST':
+		nombre = request.POST['nombre']
+		pesoAsignatura = request.POST['peso']
+		activo = True
+		asignatura = Asignatura(nombre=nombre,pesoAsignatura=pesoAsignatura,activo=activo)
+		asignatura.save()
+		return HttpResponseRedirect('/')
+	else:
+		return render_to_response('addasignatura.html',context_instance=RequestContext(request))
 
 def add_logro_view(request):
 	if request.method == 'POST':
