@@ -6,10 +6,30 @@ from crud.apps.models import Logro,Asignatura
 
 def index_view(request):
 	lista_asinatura = Asignatura.objects.filter(activo=True)
-	lista_logro  = Logro.objects.filter(activo=True)
+	lista_logro = Logro.objects.filter(activo=True)
 	return render_to_response('index.html', locals(),context_instance=RequestContext(request))
 
+<<<<<<< HEAD
 """
+=======
+
+def del_asignatura_view(request, id_asignatura):
+	try:
+		Logro.objects.get(idAsignatura = id_asignatura)
+		asignatura = Asignatura.objects.get(idAsignatura = id_asignatura)
+		asignatura.delete()
+	except Exception, e:
+		pass
+	
+	return HttpResponseRedirect("/")
+
+
+def del_logro_view(request, id_logro):
+	logro = Asignatura.objects.get(idLogro = id_logro)
+	logro.delete()
+	return HttpResponseRedirect("/")
+
+>>>>>>> 13cb55bb7771d762986fb39ff2a6c40eeaead4b7
 def add_asignatura_view(request):
 	if request.method == 'POST':
 		info = "inicializando"
@@ -44,6 +64,7 @@ def add_asignatura_view(request):
 	else:
 		return render_to_response('addasignatura.html',context_instance=RequestContext(request))
 
+
 def add_logro_view(request):
 	if request.method == 'POST':
 		asignatura = request.POST['asignatura']
@@ -57,3 +78,4 @@ def add_logro_view(request):
 	else:
 		asignaturas = Asignatura.objects.all()
 		return render_to_response('addlogro.html',locals(),context_instance=RequestContext(request))
+
