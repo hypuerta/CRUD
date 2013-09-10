@@ -15,7 +15,6 @@
 						<td>{{a.nombre}}</td>
 						<td>{{a.pesoAsignatura}}</td>
 						<td>{{a.fechaCreacion}}</td>
-						<td><a href="/del_asignatura/{{a.idAsignatura}}">Eliminar</a></td>
 					</tr>
 				</tbody>
 			{% endfor %}
@@ -23,10 +22,7 @@
 		<h2>no existen asignaturas</h2>
 	{% endif %}
 </table>
-<<<<<<< HEAD
 <a class ="btn" href="{% url "vista_nueva_asignatura" %}"><li class="icon-plus"></li>Nueva asignatura</a><br><br>
-=======
->>>>>>> 13cb55bb7771d762986fb39ff2a6c40eeaead4b7
 
 <table class="table table-hover" border="1px">
 	<thead>
@@ -43,7 +39,6 @@
 						<td>{{a.nombre}}</td>
 						<td>{{a.descripcion}}</td>
 						<td>{{a.fechaCreacion}}</td>
-						<td><a href="/del_logro/{{a.id}}">Eliminar</a></td>
 					</tr>
 				</tbody>
 			{% endfor %}
@@ -51,4 +46,5 @@
 		<h2>no existen logros</h2>
 	{% endif %}
 </table>
+<a class ="btn" href="{% url "vista_nuevo_logro" %}"><li class="icon-plus"></li>Nuevo logro</a><br><br>
 {% endblock %}

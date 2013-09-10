@@ -2,8 +2,26 @@
 {% block title %}
 Adicionar nuevo logro
 {% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    function validar() {
+		var estaTodoOK = true;
+		if (document.getElementById("nombre").value=="") {
+			estaTodoOK = false;
+		}
+		if (document.getElementById("descripcion").value=="") {
+			estaTodoOK = false;
+		}
+
+		if (!estaTodoOK) {
+			alert("Algunos datos tienen errores, por favor corríjalos");	
+		}
+		return estaTodoOK;
+	}
+</script>
+{% endblock %}
 {% block content %}
-<form action="." method="POST">
+<form action="." method="POST" onsubmit="return validar();">
 {% csrf_token %}
 	<select name="asignatura">
 		{% for i in asignaturas %}
@@ -11,9 +29,9 @@ Adicionar nuevo logro
 		{% endfor %}
 	</select>
 	<br>
-	<input type="text" name="nombre" placeholder="nombre de logro">
+	<input type="text" name="nombre" id="nombre" placeholder="nombre de logro">
 	<br>
-	<textarea rows="6" name="descripcion" placeholder="descripcion">
+	<textarea rows="3" name="descripcion" id="descripcion" placeholder="descripcion">
 	</textarea>
 	<br>
 	<input type="submit" value="guardar">

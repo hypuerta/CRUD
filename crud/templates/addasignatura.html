@@ -1,14 +1,30 @@
-
 {% extends 'base.html' %}
 {% block title %}
 Agregar una nueva Asignatura
 {% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    function validar() {
+		var estaTodoOK = true;
+		if (document.getElementById("nombre").value=="") {
+			estaTodoOK = false;
+		}
+
+		if (document.getElementById("peso").value=="" || isNaN(document.getElementById("peso").value)) {
+				estaTodoOK = false;	
+		}			
+		if (!estaTodoOK) {
+			alert("Algunos datos tienen errores, por favor corríjalos");	
+		}
+		return estaTodoOK;
+	}
+</script>
+{% endblock %}
 {% block content %}
-	<form action="." method="POST" enctype="multipart/form-data">
+	<form action="." method="POST" enctype="multipart/form-data" onsubmit="return validar();">
 		{% csrf_token %}
-		<!--{{ form.as_p }}-->
-		<p>Nombre de la asignatura: <input type="text" name="nombre"></p>
-		<p>Peso de la asignatura: <input type="text" name="peso"></p>
+		<p><input type="text" name="nombre" id="nombre" placeholder="Nombre de la asignatura"></p>
+		<p><input type="text" name="peso" id="peso" placeholder="Peso de la asignatura"></p>
 		<input type="submit" value="Grabar">
 		<input type="reset" value="Limpiar">
 	</form>
