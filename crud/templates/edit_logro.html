@@ -1,10 +1,24 @@
-<<html>
-<head>
-	<title>Editar Logro</title>
-</head>
-<body>
-
-
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Editar logro
+{% endblock %}
+{% block content %}
+<form action="." method="POST">
+{% csrf_token %}
+	<select name="asignatura">
+		{% for i in asignaturas %}
+			{% if i == logro.idAsignatura%}
+				<option value="{{i}}" selected>{{i}}</option>
+			{%else%}
+				<option value="{{i}}">{{i}}</option>
+			{% endif%}
+		{% endfor %}
+	</select>
+	<br>
+	<input type="text" name="nombre" placeholder="nombre de logro" value="{{logro.nombre}}">
+	<br>
+	<input type="text" name="descripcion" placeholder="descripcion" value="{{logro.descripcion}}">
+	<br>
+	<input type="submit" value="guardar">
+</form>
+{% endblock %}

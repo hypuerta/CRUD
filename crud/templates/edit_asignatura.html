@@ -1,29 +1,12 @@
-<<html>
-<head>
-	<title>Editar Asignatura</title>
-</head>
-<body>
-	
-	{% endblock %}
-	{% block content %}
-	<div class="row">
-		<div class="span6">
-		<form action="." method="POST" enctype="multipart/form-data">
-			{% csrf_token %}
-			{{ form.as_p }}
-			<input type="submit" value="Grabar">
-			<input type="reset" value="Limpiar">
-		</form>
-		<a href="/productos/page/1">regresar a la lista de productos</a>
-		</div>
-		<div class="span5">
-			<img src="/media/{{producto.imagen}}">
-		</div>
-		<br>
-		{{informacion}}
-		<br>
-	</div>
-	{% endblock %}
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+	<form action="." method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Grabar">
+		<input type="reset" value="Limpiar">
+	</form>
+	<br>
+	{{informacion}}
+	<br>
+{% endblock %}

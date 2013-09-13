@@ -12,6 +12,14 @@
 	<link rel="stylesheet" href="/media/bootstrap/css/bootstrap-responsive.css">
 	<script src="/media/js/jquery.js"></script>
 	<script src="/media/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		function textCounter(field, countfield, maxlimit) {
+			if (field.value.length > maxlimit)
+				field.value = field.value.substring(0, maxlimit);
+			else 
+				countfield.value = maxlimit - field.value.length;
+		}
+	</script>
 	<style type="text/css">
 		body{
 			padding-top: 60px;

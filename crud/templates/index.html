@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<table  class="table table-hover" border="1px" width=80%>
+<table  class="table table-hover">
 	<thead>
 	<tr>
 		<td><h3>Asignatura</h3></td>
@@ -15,6 +15,8 @@
 						<td>{{a.nombre}}</td>
 						<td>{{a.pesoAsignatura}}</td>
 						<td>{{a.fechaCreacion}}</td>
+						<td><a class="btn" href="/edit/asignatura/{{a.idAsignatura}}"><li class="icon-pencil"></li>Editar</a></td>
+						<td><a class="btn" href="/delete/asignatura/{{a.idAsignatura}}" onClick="return confirm('se eliminaran los logros asociados a esta asinatura. Desea Continuar?');"><li class="icon-remove"></li>Eliminar</a></td>
 					</tr>
 				</tbody>
 			{% endfor %}
@@ -24,7 +26,7 @@
 </table>
 <a class ="btn" href="{% url "vista_nueva_asignatura" %}"><li class="icon-plus"></li>Nueva asignatura</a><br><br>
 
-<table class="table table-hover" border="1px">
+<table class="table table-hover">
 	<thead>
 	<tr>
 		<td><h3>Nombre: </h3></td>
@@ -39,6 +41,8 @@
 						<td>{{a.nombre}}</td>
 						<td>{{a.descripcion}}</td>
 						<td>{{a.fechaCreacion}}</td>
+						<td><a class="btn" href="/edit/logro/{{a.idLogro}}"><li class="icon-pencil"></li>Editar</a></td>
+						<td><a class="btn" href="/delete/logro/{{a.idLogro}}"><li class="icon-remove"></li>Eliminar</a></td>
 					</tr>
 				</tbody>
 			{% endfor %}

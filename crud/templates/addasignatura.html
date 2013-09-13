@@ -21,10 +21,14 @@ Agregar una nueva Asignatura
 </script>
 {% endblock %}
 {% block content %}
+	<h1>Agregar una nueva asignatura</h1>
+	<br><br><br>
 	<form action="." method="POST" enctype="multipart/form-data" onsubmit="return validar();">
 		{% csrf_token %}
-		<p><input type="text" name="nombre" id="nombre" placeholder="Nombre de la asignatura"></p>
-		<p><input type="text" name="peso" id="peso" placeholder="Peso de la asignatura"></p>
+		<input type="text" name="nombre" id="nombre" rows=8 cols=10 onKeyDown="textCounter(this.form.nombre,this.form.remLen,100);" onKeyUp="textCounter(this.form.nombre,this.form.remLen,100);" placeholder="nombre">
+		<br>
+		<input readonly type=text name=remLen size=3 maxlength=3 value="100" style="width:25px">
+		<p><input type="text" name="peso" id="peso" placeholder="Peso de la asignatura" onKeyDown="textCounter(this);" onKeyUp="textCounter(this.form.nombre,this.form.remLen,100);"></p>
 		<input type="submit" value="Grabar">
 		<input type="reset" value="Limpiar">
 	</form>
