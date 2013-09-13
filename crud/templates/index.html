@@ -42,7 +42,7 @@
 						<td>{{a.descripcion}}</td>
 						<td>{{a.fechaCreacion}}</td>
 						<td><a class="btn" href="/edit/logro/{{a.idLogro}}"><li class="icon-pencil"></li>Editar</a></td>
-						<td><a class="btn" href="/delete/logro/{{a.idLogro}}"><li class="icon-remove"></li>Eliminar</a></td>
+						<td><a class="btn" href="/delete/logro/{{a.idLogro}}" onClick="return confirm('Seguro que desea eliminar el logro?');"><li class="icon-remove"></li>Eliminar</a></td>
 					</tr>
 				</tbody>
 			{% endfor %}
